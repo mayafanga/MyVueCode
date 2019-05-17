@@ -1,0 +1,9 @@
+C:\Users\MYF\Desktop\MovieVue\Movie.IService\bin\Debug\Movie.IService.dll
+C:\Users\MYF\Desktop\MovieVue\Movie.IService\bin\Debug\Movie.IService.pdb
+C:\Users\MYF\Desktop\MovieVue\Movie.IService\bin\Debug\Movie.DTO.dll
+C:\Users\MYF\Desktop\MovieVue\Movie.IService\bin\Debug\Movie.DTO.pdb
+C:\Users\MYF\Desktop\MovieVue\Movie.IService\obj\Debug\Movie.IService.csprojAssemblyReference.cache
+C:\Users\MYF\Desktop\MovieVue\Movie.IService\obj\Debug\Movie.IService.csproj.CoreCompileInputs.cache
+C:\Users\MYF\Desktop\MovieVue\Movie.IService\obj\Debug\Movie.IService.csproj.CopyComplete
+C:\Users\MYF\Desktop\MovieVue\Movie.IService\obj\Debug\Movie.IService.dll
+C:\Users\MYF\Desktop\MovieVue\Movie.IService\obj\Debug\Movie.IService.pdb

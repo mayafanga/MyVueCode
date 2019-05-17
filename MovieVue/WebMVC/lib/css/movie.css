@@ -1,0 +1,63 @@
+﻿.dropBox {
+    width: 400px;
+    height: 300px;
+    border: 5px solid #ddd;
+    box-shadow: 2px 2px 12px 2px #666;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-top: -155px;
+    margin-left: -205px;
+    z-index: 199;
+    background-color: #fff;
+    display: none;
+}
+
+.dropBox .hd {
+    background-color: #369;
+    width: 380px;
+    height: 30px;
+    font-size: 14px;
+    line-height: 30px;
+    padding-left: 20px;
+    color: #fff;
+    font-weight: bold;
+    cursor: move;
+}
+
+.dropBox .box_closes {
+    float: right;
+    cursor: pointer;
+}
+
+.mask {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: #666;
+    opacity: 0.4;
+    z-index: 99;
+    display: none;
+}
+
+.dropBox .bd label {
+    width: 130px;
+    height: 35px;
+    display: inline-block;
+    text-align: right;
+    font-size: 14px;
+    line-height: 35px;
+    font-weight: bold;
+    padding-right: 20px;
+}
+
+.dropBox .bd #btnUpdate {
+    width: 150px;
+    padding: 5px 10px;
+    border: 1px solid #808080;
+    border-radius: 3px;
+    margin: 0 auto;
+    margin-left: 100px;
+}

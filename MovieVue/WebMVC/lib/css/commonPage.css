@@ -1,0 +1,8 @@
+﻿
+.row-fluid {
+    width:100%;
+    margin:0 auto;
+}
+.row-fluid > .span6{
+    float:left;
+}

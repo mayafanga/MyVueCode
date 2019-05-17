@@ -1,0 +1,150 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+    <link href="~/lib/commonlib/bootstrap-3.3.7/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/lib/commonlib/font-awesome-4.7.0/css/font-awesome.css" rel="stylesheet" />
+    <link href="~/lib/commonlib/animate.css-3.5.0/animate.min.css" rel="stylesheet" />
+    <link href="~/lib/css/homePage.css" rel="stylesheet" />
+</head>
+<body>
+    <div>
+        <div class="admin-container">
+            <ul class="nav nav-pills nav-justified nav-stacked">
+                <li role="presentation" class="active" id="pageIndexli"><a href="javascript:void(0);" role="tab" data-toggle="tab">编辑首页</a></li>
+                <li role="presentation" id="movieli"><a href="javascript:void(0);" role="tab" data-toggle="tab">电影</a></li>
+                <li role="presentation" id="newsli"><a href="javascript:void(0);" role="tab" data-toggle="tab">新闻</a></li>
+                <li role="presentation" id="userli"><a href=javascript:void(0);" role="tab" data-toggle="tab">成员</a></li>
+                <li role="presentation" id="commentli"><a href="javascript:void(0);" role="tab" data-toggle="tab">评论</a></li>
+                <li role="presentation" id="emailli"><a href="javascript:void(0);" role="tab" data-toggle="tab">反馈</a></li>
+            </ul>
+            <div class="tab-content">
+                <!--首页编辑-->
+                <div role="tabpanel" class="preGloryInfo tab-pane fade in active" id="pageIndex">
+                    <!-- 上传轮播图 -->
+                    <div class="glorySlideInfo">
+                        <div class="image-editor glorySlide">
+                            <div class="cropit-preview slidePicture"> </div>
+                            <div class="row selUpBtn">
+                                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 btnPicture">
+                                    <input type="file" class="cropit-image-input" id="selectInput"  style="display:none">
+                                    <button class="btn btn-primary select-image-btn" id="selectImg">选择图片</button>
+                                </div>
+                                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 btnPicture">
+                                    <button class="btn btn-primary export">生成图片</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- 小图生成区 -->
+                    <div class="againUpLoad">
+                        <div class="smallSlideFirst">
+                            <img src="" alt="请生成图片...">
+                        </div>
+                        <div class="smallSlideSecond">
+                            <img src="" alt="请生成图片...">
+                        </div>
+                        <div class="smallSlideThird">
+                            <img src="" alt="请生成图片...">
+                        </div>
+                    </div>
+
+                    <div class="glorySubmit text-center">
+                        <hr>
+                        <button class="btn btn-primary" id="UploadImg">上传图片</button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</body>
+<script src="/lib/commonlib/jquery-2.1.4/jquery.min.js"></script>
+<script src="~/lib/commonlib/jQuery Form-3.51.0/jquery.form.js"></script>
+<script src="~/lib/commonlib/bootstrap-3.3.7/js/bootstrap.min.js"></script>
+<script src="~/lib/commonlib/wow-1.1.2/wow.min.js"></script>
+<script src="~/lib/commonlib/cropit.js-0.5.1/jquery.cropit.js"></script>
+<script src="~/lib/js/hrefCommon.js"></script>
+
+<script>
+    $(function () {
+        //调用动画
+        new WOW().init();
+        //图片剪切初始化
+        $('.image-editor').cropit({
+            //加载小图片
+            smallImage: 'allow',
+            // 让图片脱离边框
+            freeMove: true,
+            //图片加载时的缩放
+            initialZoom: 'min'
+        });
+
+        //轮播选择图片
+        $('#selectImg').on('click',function () {
+            $('#selectInput').click();
+        });
+        //轮播输出图片
+        $('.preGloryInfo .glorySlideInfo .export').click(function () {
+            var imageData = $('.preGloryInfo .glorySlideInfo .image-editor').cropit('export', {
+                type: 'image/jpeg'
+            });
+            $('.preGloryInfo .againUpLoad img').each(function () {
+                if ($(this).attr('src') == '') {
+                    $(this).attr('src', imageData);
+                    return false;
+                }
+            });
+        });
+        $('#UploadImg').on('click', function () {
+            console.log(10);
+            var SliderArray = new Array();
+            var allSliderImg = $('.preGloryInfo .againUpLoad div img');
+            for (var i = 0; i < allSliderImg.length; i++) {
+                if (allSliderImg.eq(i).attr('src') != "") {
+                    SliderArray.push(allSliderImg.eq(i).attr('src'));
+                }
+            }
+            if (SliderArray.length < 1) {
+                alert('至少选择一张图片');
+                return false;
+            } else if (SliderArray.length == 1) {
+                var SliderSrc = SliderArray[0];
+            } else {
+                SliderSrc = SliderArray.join('#'); //待发送数据
+            }
+            //把图片通过AJAX发送到后台
+            $.ajax({
+                async: true,
+                beforeSend: function () { },
+                complete: function () { },
+                url: '/HomePage/UpdateSlider',
+                type: "POST",
+                dataType: "json",
+                data: {
+                    sliderImg: SliderSrc
+                },
+                success: function (InfoS) {
+                    var data = JSON.stringify(InfoS);
+                    data = JSON.parse(data);
+                    if (data.status == "200") {
+                        allSliderImg.attr('src', "");
+                    } else {
+                        alert(data.msg);
+                    }
+                },
+                error: function (Infos) {
+                    console.log(Infos.status, Infos.statusText);
+                }
+            });
+        });
+    })
+</script>
+</html>

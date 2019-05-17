@@ -1,0 +1,41 @@
+﻿.glorySlide {
+    width: 100%;
+    text-align: center;
+    margin-top: 30px;
+}
+.glorySlide .slidePicture {
+    width: 900px;
+    height: 300px;
+    margin: 30px auto;
+    background-color: #f8f8f8;
+    background-size: cover;
+    border: 1px solid #ccc;
+    cursor: move;
+}
+.preGloryInfo .selUpBtn .btnPicture {
+    text-align: center;
+}
+.preGloryInfo .againUpLoad {
+    width: 78%;
+    height: 100px;
+    text-align: center;
+    margin-top: 20px;
+    margin-left: 10%;
+}
+.preGloryInfo .againUpLoad .smallSlideFirst, .smallSlideSecond, .smallSlideThird, .smallSlideFour, .smallSlideFive {
+    width: 17%;
+    height: 53px;
+    display: inline-block;
+    margin-left: 10px;
+}
+.preGloryInfo .againUpLoad img {
+    max-width: 100%;
+    max-height: 100%;
+}
+.preGloryInfo .againUpLoad button {
+    margin-top: 10px;
+}
+.preGloryInfo .glorySubmit {
+    margin-right: 12px;
+    margin-bottom: 15px;
+}

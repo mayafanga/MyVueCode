@@ -1,0 +1,6 @@
+C:\Users\MYF\Desktop\MovieVue\Movie.DTO\bin\Debug\Movie.DTO.dll
+C:\Users\MYF\Desktop\MovieVue\Movie.DTO\bin\Debug\Movie.DTO.pdb
+C:\Users\MYF\Desktop\MovieVue\Movie.DTO\obj\Debug\Movie.DTO.csprojAssemblyReference.cache
+C:\Users\MYF\Desktop\MovieVue\Movie.DTO\obj\Debug\Movie.DTO.csproj.CoreCompileInputs.cache
+C:\Users\MYF\Desktop\MovieVue\Movie.DTO\obj\Debug\Movie.DTO.dll
+C:\Users\MYF\Desktop\MovieVue\Movie.DTO\obj\Debug\Movie.DTO.pdb
